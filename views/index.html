@@ -4,7 +4,8 @@
     <link
       rel="icon"
       href="https://cdn.glitch.com/b9b52e5f-af8d-466e-8e0d-3808a48ecad2%2Fmap_icon.png?v=1594178116812"
-     />
+    />
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -12,5 +13,89 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
+
+  <body>
+    <div id="black">
+      <span><h2 id="leftCorner">Jinaviard</h2></span>
+      <div id="rc">
+        <span style="margin-right: 20%; cursor: default;"><h2>Home</h2></span>
+        <span><a href="#start" style="color: gray; text-decoration: none;"><h2 class="nav-item">Play</h2></a></span>
+      </div>
+    </div>
+
+    <div id="header">
+      <img id="background" src="https://cdn.glitch.com/b9b52e5f-af8d-466e-8e0d-3808a48ecad2%2Fbg.jpg?v=1594152009983"/>
+      <h1 id="gameName">Jinaviard</h1>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div class="container">
+      <!-- First Row -->
+      <div class="row">
+        <div class="col-xl-6 align">
+          <p>
+            Jinaviard is a project made during the Hack The Cloud event, hosted
+            from July 11th-12th.
+          </p>
+        </div>
+
+        <div class="col-xl-6">
+          <img class="cloud" style="width: 100%;" src="https://cdn.glitch.com/b9b52e5f-af8d-466e-8e0d-3808a48ecad2%2FhackCloud.png?v=1594152009983"/>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <!-- Second Row -->
+      <div class="row">
+        <div class="col-xl-5">
+          <img src="https://cdn.glitch.com/b9b52e5f-af8d-466e-8e0d-3808a48ecad2%2Fhelm_book.png?v=1594160968715"/>
+        </div>
+
+        <div class="col-xl-7 align">
+          <p>
+            This is a Story RPG game, which means that the game is controlled
+            solely by choices, and the decisions you make will shape the story.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p style="line-height: 430px;color: #0C1821;">_</p>
+
+    <!-- character username -->
+    <h3 id="start">Start</h3>
+    <p>To start, please enter a name for your character.</p>
     
-   
+    <input type="text" id="nameInput" placeholder="Enter a name...." pattern="/{1,15}/">
+    <button id="submitBtn" onclick="nameRedirect('intro')">
+      <span class="buttonTxt">Play</span>
+    </button>
+    
+    <div class="errorHolder">
+      <h4 id="errorPlaceholder"></h4>
+    </div>
+    
+
+    <br />
+
+    <!-- gradient background -->
+    <div id="gradient"></div>
+
+    <!-- contriubtor names -->
+    <div style="background-color: #1B2A41; height: 350px;">
+      <h4 id="contribute">Contributors</h4>
+      <h1 class="creators">Jinkang Fang</h1>
+      <h1 class="creators">Octavio Lomeli-Castro</h1>
+      <h1 class="creators">Richard Yu</h1>
+    </div>
+  </body>
+</html>
