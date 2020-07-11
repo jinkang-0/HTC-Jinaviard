@@ -110,7 +110,7 @@ body {
 
 .lightblue {
     background: #2b456d;
-    height: 50vw;
+    height: 130vh;
 }
 
 .settingInfo {
@@ -122,6 +122,7 @@ body {
     font-size: 18px;
     width: 90%;
     margin-bottom: 25px; 
+    margin-top: -50px;
 }
 
 #settingImg {
@@ -135,10 +136,10 @@ body {
 }
 
 .gear {
-    position: relative;
-    top: 0px;
+    position: absolute;
+    bottom: 0px;
     background-color: #1b2a41;
-    width: 41.35vw;
+    width: 41.5vw;
     padding-bottom: 25px;
 }
 
@@ -146,4 +147,21 @@ body {
   .gear {
     width: 103%;
   }
+}
+
+.items {
+    display: flex;
+    margin-left: 50px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.item {
+    width: 17%;
+    height: 7.5vw;
+    object-fit: contain;
+    background-color: #324a5f;
+    border: solid #324a5f 10px;
+    margin-right: 20px;
 }
