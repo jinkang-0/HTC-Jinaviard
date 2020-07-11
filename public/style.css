@@ -1,1 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Sarabun&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0C1821;
+  color: white;
+  text-align: center;
+  font-family: Sarabun;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background: darkslategray;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+}
+
+/* our names */
+.creators {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  padding-left: 9%;
+  padding-right: 9%;
+  width: 82%;
+}
+
+/* navbar */
+.nav-item {
+  color: gray;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.nav-item:hover {
+  color: #b8b8b8;
+}
+
+#black {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 48px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  padding-top: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#leftCorner {
+  text-align: left;
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+#rc {
+  display: flex;
+  justify-self: flex-end;
+  justify-content: flex-end;
+  width: 15%;
+  margin-right: 3%;
+}
+
+/* header */
+#header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#background {
+  width: 100%;
+  position: relative;
+  top: -20px;
+  left: 0px;
+}
+
+#gameName {
+  color: black;
+  position: absolute;
+  top: 100px;
+  font-weight: bold;
+  font-size: 120px;
+}
+
+/* body */
+
+#start {
+  color: white;
+  font-size: 67px;
+  font-weight: 800;
+}
+
+/* form */
+
+::placeholder {
+  font-family: Sarabun;
+  font-weight: bold;
+  color: #313131;
+}
+
+.buttonTxt {
+  position: relative;
+  bottom: 5px;
+  font-weight: 1000;
+}
+
+#nameInput {
+  background-color: #9C9393;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  width: 400px;
+  height: 45px;
+  padding-left: 5px;
+  color: black;
+  font-family: Sarabun;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.15s;
+}
+
+#nameInput:hover, #nameInput:focus {
+  background-color: tan;
+}
+
+#submitBtn {
+  margin-left: 15px;
+  position: relative;
+  top: 3px;
+  background-color: #636A6B;
+  border: 2px solid black;
+  color: black;
+  width: 80px;
+  height: 45px;
+  object-fit: contain;
+  outline: none;
+  transition: background-color 0.15s;
+}
+
+#submitBtn:hover {
+  background-color: #9C9393;
+}
+
+#submitBtn:active {
+  background-color: #636A6B;
+}
+
+.errorHolder {
+  position: relative;
+}
+
+#errorPlaceholder {
+  color: crimson;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  width: 100%;
+}
+
+#gradient {
+  background: linear-gradient(0deg, #1B2A41 3.73%, rgba(27, 42, 65, 0) 100%);
+  height: 400px;
+}
+
+#contribute {
+  color: #CCC9DC;
+  text-decoration: underline;
+  font-size: 40px;
+  font-weight: 700;
+  background-color: #1B2A41;
+}
