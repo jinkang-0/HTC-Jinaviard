@@ -1,0 +1,23 @@
+{
+  "name": "htc-jinaviard",
+  "version": "1.0.0",
+  "description": "Story RPG built for Hack the Cloud, Node app using Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://github.com/jinkang-0/HTC-Jinaviard"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "express"
+  ]
+}
