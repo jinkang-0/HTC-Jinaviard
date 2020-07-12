@@ -14,6 +14,7 @@ A story RPG project made during the Hack The Cloud event.
 **No download/install required!**
 
 Available at http://hackthecloud-story-rpg.glitch.me
+**Use maximized window/fullscreen for best experience!**
 
 ## Local Setup
 1. Download repository
