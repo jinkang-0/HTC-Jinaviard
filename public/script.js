@@ -1,4 +1,3 @@
-// Random welcome messages on /intro.html
 const randomMessages = [
   "Good luck, have fun, [name]. I'll be watching you...",
   "Welcome [name], we've been expecting you!",
@@ -9,13 +8,13 @@ const randomMessages = [
 ];
 
 let storylineData;
+let playerInventory = [];
+let saveState = [];
 
-// Listen for "Enter" key on name input field
 document.getElementById("nameInput").addEventListener("keyup", (event) => {
   (event.key == "Enter") ? nameRedirect("intro") : null;
 })
 
-// Redirect user to /intro.html or /play.html given sufficient name
 function nameRedirect(redirType) {  
   if (redirType == "intro") {
     let errorPlaceholder = document.getElementById("errorPlaceholder");
@@ -99,15 +98,9 @@ function changeElements(scenario) {
   let settingDesc = storylineData[scenario]["settingDesc"];
   document.getElementById("settingDesc").innerHTML = settingDesc;
   
-  // Image changing
   let imageUrl = storylineData[scenario]["imgSrc"];
   document.getElementById("settingImg").src = imageUrl;
   
-  // save states
-  saveState.push(scenario);
-  document.cookies
-
-  // adding/removing buttons
   document.getElementById("button1").innerHTML = storylineData[scenario]["button1"]["text"];
   document.getElementById("button1").setAttribute("onclick", `interaction(1, "${scenario}")`);
   document.getElementById("button2").innerHTML = storylineData[scenario]["button2"]["text"];
@@ -128,6 +121,7 @@ function interaction(choice, scenario) {
   let scenarioPath = storylineData[scenario][`button${choice}`]["path"];
   let altActionText;
   
+  // new logic testing
   function redAlt() {
     console.log("Has " + storylineData[scenario][`button${choice}`]["alternative"]["item"]);
     altActionText = storylineData[scenario][`button${choice}`]["alternative"]["action"];
@@ -173,7 +167,7 @@ function interaction(choice, scenario) {
   } else if (storylineData[scenario][`button${choice}`]["random"]) {
     redRand();
   }
-  
+ 
   setTimeout(() => {
     if (altActionText) {
       document.getElementById("actionText").innerHTML = altActionText;
@@ -215,4 +209,27 @@ function interaction(choice, scenario) {
   
   console.log(`${scenario} (origin) -> ${scenarioPath}`);
   changeElements(scenarioPath);
+}
+
+function endTransition(scenario) {
+  let currentWindowUrl = window.location.href.replace(/play\?playerName=\w+/gi, "");;
+  let urlQuerys = new URLSearchParams(window.location.search);
+  let playerName = urlQuerys.get("playerName");
+  
+  console.log(`Game ended at '${scenario}' scenario`);
+  window.location.assign(`${currentWindowUrl}ending?playerName=${playerName}&ending=${scenario}`);
+}
+
+function endElements(ending, altText=null) {
+  let currentWindowUrl = window.location.href.replace(/&|playerName=\w+|ending=\w+|ending\?/gi, "");;
+  let urlQuerys = new URLSearchParams(window.location.search);
+  let playerName = urlQuerys.get("playerName");
+  
+  document.getElementById("pic").src = storylineData[ending]["imgSrc"];
+  document.getElementById("welcomeText").innerHTML = storylineData[ending]["endTitle"];
+  document.getElementsByClassName("text")[0].innerHTML = storylineData[ending]["effectText"];
+  document.getElementById("cont").innerHTML = "Retry";
+  document.getElementById("cont").onclick = () => {
+    window.location.assign(`${currentWindowUrl}intro?playerName=${playerName}`)
+  };
 }
