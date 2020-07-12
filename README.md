@@ -13,7 +13,7 @@ A story RPG project made during the Hack The Cloud event.
 ## Demo
 **No download/install required!**
 
-Available at http://hackthecloud-story-rpg.glitch.me
+Available at http://hackthecloud-story-rpg.glitch.me  
 **Use maximized window/fullscreen for best experience!**
 
 ## Local Setup
