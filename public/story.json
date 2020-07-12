@@ -1,0 +1,73 @@
+{
+  "exampleScenario": {
+    "type": "scenario",
+    
+    "imgSrc": "https://i.pinimg.com/originals/af/85/73/af8573a8bbea7c7bd0b1a4ee1be647d9.jpg",
+    "settingName": "Shop",
+    "settingDesc": "People buy things here",
+    
+    "actionText": "You walked into a shop.",
+    "effectText": "You notice something you wanna buy.",
+    "optionalText": "Someone looked at you funny.",
+    
+    "button1": {
+      "text": "Leave the shop",
+      "path": "leaveShop"
+    }
+    
+    "button2": {
+      "text": "Buy something",
+      "path": "leaveShop",
+      "action": "You bought this thing, then you left."
+      "addItem": {
+        "name": "apple",
+        "itemSrc": "https://cdn.iconscout.com/icon/free/png-256/apple-853-675472.png"
+      }
+    }
+    
+    "button3": {
+      "text": "Look back at the dude that looked at you funny",
+      "random": [
+        {
+          "chance": 0.5,
+          "path": "leaveShop",
+          "action": "You got punched out of the shop."
+        },
+        {
+          "chance": 0.5,
+          "path": "leaveShop",
+          "action": "You stared back menacingly, then left."
+        }
+      ]
+    }
+  },
+  "leaveShop": {
+    "type": "scenario",
+    
+    "imgSrc": "https://i.pinimg.com/originals/59/dc/81/59dc813519f7efce13c9594be783765d.jpg",
+    "settingName": "Town",
+    "settingDesc": "Lots of people live here.",
+    
+    "actionText": "You walked out of the shop.",
+    "effectText": "You decided you should sleep.",
+    
+    "button1": {
+      "text": "Go to sleep.",
+      "path": "exampleEnding"
+    },
+    
+    "button2": {
+      "text": "Teleport back to sleep.",
+      "path": "exampleEnding",
+      "effect": "You teleported back to your room and slept."
+    }
+  },
+  "exampleEnding": {
+    "type": "ending",
+    
+    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4247d0a9-e034-4c17-aa5e-a4b0d757a303/d9zklci-e374fa74-030d-4fd8-9b83-a44d68b274f7.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNDI0N2QwYTktZTAzNC00YzE3LWFhNWUtYTRiMGQ3NTdhMzAzXC9kOXprbGNpLWUzNzRmYTc0LTAzMGQtNGZkOC05YjgzLWE0NGQ2OGIyNzRmNy5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.N7eTFjPvbqYJ_Qgw6xg42YjZQaczLjwmxpvkTLoHlCU",
+    
+    "endTitle": "Sleeeep",
+    "effectText": "You went back and slept"
+  }
+}
