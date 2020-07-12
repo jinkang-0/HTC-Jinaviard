@@ -61,10 +61,6 @@ body {
   text-align: center;
 }
 
-.align {
-  text-align: center;
-}
-
 .text {
   color: #CCC9DC;
   text-align: justify;
@@ -73,8 +69,8 @@ body {
 }
 
 #pic {
-  width: 100%;
-  margin-left: -0.1%;
+  width: 200%;
+  margin-left: -20%;
   border: 3px black solid;
 }
 
@@ -92,6 +88,7 @@ body {
   font-family: sans-serif;
   font-weight: 800;
   outline: none;
+  transition: background 0.15s;
 }
 
 #cont:hover {
@@ -113,7 +110,7 @@ body {
 
 @media (min-width: 1201px) {
   #pic {
-    width: 130%;
+    width: 140%;
     margin-left: -5%;
   }
 }
