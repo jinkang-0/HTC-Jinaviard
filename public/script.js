@@ -128,6 +128,91 @@ function interaction(choice, scenario) {
   let scenarioPath = storylineData[scenario][`button${choice}`]["path"];
   let altActionText;
   
+  function redAlt() {
+    console.log("Has " + storylineData[scenario][`button${choice}`]["alternative"]["item"]);
+    altActionText = storylineData[scenario][`button${choice}`]["alternative"]["action"];
+    let altPath = storylineData[scenario][`button${choice}`]["alternative"]["path"];
+    scenarioPath = altPath;
+    document.getElementById("actionText").innerHTML = altActionText;
+    
+    (storylineData[scenario][`button${choice}`]["alternative"]["addItem"]) ? addItem("alt") : null;
+  }
+  
+  function redRand() {
+    const chance1 = storylineData[scenario][`button${choice}`]["random"][0]["chance"];
+    const chance2 = storylineData[scenario][`button${choice}`]["random"][1]["chance"];
+    const randNum = Math.random();
+
+    if (randNum < chance1) {
+        console.log(`${chance1 * 100}% chance of happening`);
+      
+        (storylineData[scenario][`button${choice}`]["random"][0]["addItem"]) ? addItem("rand", 0) : null;
+      
+        altActionText = storylineData[scenario][`button${choice}`]["random"][0]["action"];
+        let altPath = storylineData[scenario][`button${choice}`]["random"][0]["path"];
+        scenarioPath = altPath;
+    } else {
+        console.log(`${chance2 * 100}% chance of happening`);
+      
+        (storylineData[scenario][`button${choice}`]["random"][1]["addItem"]) ? addItem("rand", 1) : null;
+      
+        altActionText = storylineData[scenario][`button${choice}`]["random"][1]["action"];
+        let altPath = storylineData[scenario][`button${choice}`]["random"][1]["path"];
+        scenarioPath = altPath;
+    }
+  }
+
+  if (storylineData[scenario][`button${choice}`]["alternative"] && storylineData[scenario][`button${choice}`]["random"]) {
+    if (playerInventory.indexOf(storylineData[scenario][`button${choice}`]["alternative"]["item"]) != -1) {
+      redAlt();
+    } else {
+      redRand();
+    }
+  } else if (storylineData[scenario][`button${choice}`]["alternative"]) {
+    redAlt();
+  } else if (storylineData[scenario][`button${choice}`]["random"]) {
+    redRand();
+  }
+  
+  setTimeout(() => {
+    if (altActionText) {
+      document.getElementById("actionText").innerHTML = altActionText;
+    }
+    
+    // Add item to inventory
+    (storylineData[scenario][`button${choice}`]["addItem"]) ? addItem() : null;
+  }, 1);
+  
+  function addItem(altrand=null, arrIndex=null) {
+    if (altrand == "alt") {      // ********************************** Alt/Random Add item
+      
+      playerInventory.push(storylineData[scenario][`button${choice}`]["alternative"]["addItem"]["name"]);
+      let item = document.createElement("img");
+      item.src = storylineData[scenario][`button${choice}`]["alternative"]["addItem"]["itemSrc"];
+      item.className += "item";
+      document.getElementById("inventory").appendChild(item);
+      console.log(`Item '${storylineData[scenario][`button${choice}`]["alternative"]["addItem"]["name"]}' -> Player Inventory`);
+      
+    } else if (altrand == "random") {
+      
+      playerInventory.push(storylineData[scenario][`button${choice}`]["random"][arrIndex]["addItem"]["name"]);
+      let item = document.createElement("img");
+      item.src = storylineData[scenario][`button${choice}`]["random"][arrIndex]["addItem"]["itemSrc"];
+      item.className += "item";
+      document.getElementById("inventory").appendChild(item);
+      console.log(`Item '${storylineData[scenario][`button${choice}`]["random"][arrIndex]["addItem"]["name"]}' -> Player Inventory`);
+      
+    } else if (storylineData[scenario][`button${choice}`]["addItem"]) {
+      
+      playerInventory.push(storylineData[scenario][`button${choice}`]["addItem"]["name"]);
+      let item = document.createElement("img");
+      item.src = storylineData[scenario][`button${choice}`]["addItem"]["itemSrc"];
+      item.className += "item";
+      document.getElementById("inventory").appendChild(item);
+      console.log(`Item '${storylineData[scenario][`button${choice}`]["addItem"]["name"]}' -> Player Inventory`);
+    }
+  }
+  
   console.log(`${scenario} (origin) -> ${scenarioPath}`);
   changeElements(scenarioPath);
 }
