@@ -1,5 +1,7 @@
 # Jinaviard (Hack the Cloud)
-A story RPG project made during the Hack The Cloud event.
+A story RPG project made during the [Hack The Cloud](https://hack-the-cloud.devpost.com/) event.
+
+[Devpost project submission](https://devpost.com/software/jinaviard) with debrief.
 
 ## Contributors
 * Jinkang Fang
@@ -14,6 +16,7 @@ A story RPG project made during the Hack The Cloud event.
 **No download/install required!**
 
 Available at http://hackthecloud-story-rpg.glitch.me  
+
 **Use maximized window/fullscreen for best experience!**
 
 ## Local Setup
