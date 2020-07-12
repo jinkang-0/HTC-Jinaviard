@@ -1,73 +1,1245 @@
 {
-  "exampleScenario": {
+  "mainScenario": {
     "type": "scenario",
-    
-    "imgSrc": "https://i.pinimg.com/originals/af/85/73/af8573a8bbea7c7bd0b1a4ee1be647d9.jpg",
-    "settingName": "Shop",
-    "settingDesc": "People buy things here",
-    
-    "actionText": "You walked into a shop.",
-    "effectText": "You notice something you wanna buy.",
-    "optionalText": "Someone looked at you funny.",
-    
+
+    "imgSrc": "https://i.pinimg.com/originals/b4/a0/d8/b4a0d8aea098dd0506494189363ba488.jpg",
+    "settingName": "Throne Room",
+    "settingDesc": "The meeting hall of the King and council members.",
+
+    "actionText": "You were escorted by two royal guards to the throne room.",
+    "effectText": "The place where important decisions that will affect the world are made.",
+    "optionalText": "It is decided that you will be the central piece of the battle against the Dark Lord, facing against the Dark Lord himself, and the royal army will aid you when the time comes.",
+
+    "questionText": "Do you want to voice an opinion?",
+
     "button1": {
-      "text": "Leave the shop",
-      "path": "leaveShop"
-    }
-    
+      "text": "No",
+      "path": "executePlan"
+    },
+
     "button2": {
-      "text": "Buy something",
-      "path": "leaveShop",
-      "action": "You bought this thing, then you left."
-      "addItem": {
-        "name": "apple",
-        "itemSrc": "https://cdn.iconscout.com/icon/free/png-256/apple-853-675472.png"
-      }
-    }
-    
+      "text": "Refuse to participate",
+      "path": "changePlan"
+    },
+
     "button3": {
-      "text": "Look back at the dude that looked at you funny",
+      "text": "Request reward",
       "random": [
         {
-          "chance": 0.5,
-          "path": "leaveShop",
-          "action": "You got punched out of the shop."
+          "chance": 0.4,
+          "path": "getReward"
         },
         {
-          "chance": 0.5,
-          "path": "leaveShop",
-          "action": "You stared back menacingly, then left."
+          "chance": 0.6,
+          "path": "executePlan",
+          "action": "The King rejected your request, however, you were promised a reward after you succeed in defeating the Dark Lord. With that, the meeting was dismissed."
         }
       ]
     }
   },
-  "leaveShop": {
+  "executePlan": {
     "type": "scenario",
-    
-    "imgSrc": "https://i.pinimg.com/originals/59/dc/81/59dc813519f7efce13c9594be783765d.jpg",
-    "settingName": "Town",
-    "settingDesc": "Lots of people live here.",
-    
-    "actionText": "You walked out of the shop.",
-    "effectText": "You decided you should sleep.",
-    
+
+    "imgSrc": "https://i.pinimg.com/originals/3f/ae/ef/3faeefab917eebc7e7e417a753e4d8a8.jpg",
+    "settingName": "Kingdom's Capital",
+    "settingDesc": "The capital city of Dartheem Kingdom.",
+
+    "actionText": "With the agreement of everyone participating in the upcoming war, the meeting was dismissed.",
+    "effectText": "You began by preparing a journey to the Dark Lord's castle, the sooner the Dark Lord falls, the better.",
+
+    "questionText": "Do you want to do anything before you leave?",
+
     "button1": {
-      "text": "Go to sleep.",
-      "path": "exampleEnding"
+      "text": "Take a look around",
+      "path": "exploreCity"
     },
-    
+
     "button2": {
-      "text": "Teleport back to sleep.",
-      "path": "exampleEnding",
-      "effect": "You teleported back to your room and slept."
+      "text": "Rest",
+      "path": "rest"
+    },
+
+    "button3": {
+      "text": "Begin the journey",
+      "path": "startJourney"
     }
   },
-  "exampleEnding": {
+  "changePlan": {
+    "type": "scenario",
+
+    "imgSrc": "https://vignette.wikia.nocookie.net/brenielverse-rpg/images/f/f1/Raphalor_King.jpg/revision/latest/top-crop/width/360/height/450?cb=20170321131051",
+    "settingName": "Throne Room",
+    "settingDesc": "The meeting hall of the King and council members.",
+
+    "actionText": "You refused to participate in this battle.",
+    "effectText": "The King was surprised and declined your request.",
+    "optionalText": "\"There would be no one else capable of defeating the Dark Lord but you, sire [name]\"",
+
+    "questionText": "What do you do?",
+
+    "button1": {
+      "text": "Back down",
+      "path": "executePlan",
+      "action": "\"Thank you for understanding, sire [name],\" and so, the meeting was dismissed."
+    },
+
+    "button2": {
+      "text": "Insist",
+      "path": "backstabbed"
+    }
+  },
+  "backstabbed": {
     "type": "ending",
-    
-    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4247d0a9-e034-4c17-aa5e-a4b0d757a303/d9zklci-e374fa74-030d-4fd8-9b83-a44d68b274f7.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNDI0N2QwYTktZTAzNC00YzE3LWFhNWUtYTRiMGQ3NTdhMzAzXC9kOXprbGNpLWUzNzRmYTc0LTAzMGQtNGZkOC05YjgzLWE0NGQ2OGIyNzRmNy5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.N7eTFjPvbqYJ_Qgw6xg42YjZQaczLjwmxpvkTLoHlCU",
-    
-    "endTitle": "Sleeeep",
-    "effectText": "You went back and slept"
+
+    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67199786-3498-496b-b0ea-b370ae392068/d6rkczf-53bdd00c-3160-4b66-a569-3d7ed7da1ce1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNjcxOTk3ODYtMzQ5OC00OTZiLWIwZWEtYjM3MGFlMzkyMDY4XC9kNnJrY3pmLTUzYmRkMDBjLTMxNjAtNGI2Ni1hNTY5LTNkN2VkN2RhMWNlMS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.Xb_tKBHXWvITXKInqeyT5A5NBhaT0DcYpniK694rPjQ",
+
+    "endTitle": "Backstabbed",
+    "effectText": "\"If you insist...\" With those words, the meeting was dismissed.<br><br>But as you walked out the doors of the throne room, you were backstabbed by the royal guards... Under the King's orders.<br><br>\"Those who denies to save the world have no right to be called a hero.\""
+  },
+  "getReward": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/ae/71/b1/ae71b16cda95855247b8a7c95ee9609b.jpg",
+    "settingName": "Throne Room",
+    "settingDesc": "The meeting place of the King and council members.",
+
+    "actionText": "You requested a reward for taking down the Dark Lord.",
+    "effectText": "The King hesitated, but ultimately accepted the request as you will be the one to take down the Dark Lord himself.",
+    "optionalText": "However you were only allowed to take one item.",
+
+    "questionText": "What do you take?",
+
+    "button1": {
+      "text": "Dragon Egg",
+      "path": "executePlan",
+      "addItem": {
+        "name": "dragonEgg",
+        "itemSrc": "https://cdn0.iconfinder.com/data/icons/food-allergies/24/food-allergen-egg-512.png"
+      },
+      "action": "After the meeting, you were given a Dragon Egg."
+    },
+
+    "button2": {
+      "text": "Diamond Necklace",
+      "path": "executePlan",
+      "addItem": {
+        "name": "necklace",
+        "itemSrc": "https://cdn2.iconfinder.com/data/icons/fashion-clothes-set-2-2/70/22-512.png"
+      },
+      "action": "After the meeting, you were given a diamond necklace."
+    },
+
+    "button3": {
+      "text": "Excalibur",
+      "path": "executePlan",
+      "addItem": {
+        "name": "excalibur",
+        "itemSrc": "https://cdn.iconscout.com/icon/premium/png-256-thumb/sword-223-887742.png"
+      },
+      "action": "After the meeting, you were given the legendary sword Excalibur."
+    }
+  },
+  "rest": {
+    "type": "ending",
+
+    "imgSrc": "https://i.pinimg.com/originals/72/f7/9b/72f79bba4903253298a7e66c656ba83b.jpg",
+
+    "endTitle": "Sleep deprived",
+    "effectText": "You felt tired, so you decided to stay the night at a nearby inn.<br><br>zzz...<br><br>You never woke up..."
+  },
+  "exploreCity": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/04/8a/03/048a03d07b56b9bb8568835fa3726767.jpg",
+    "settingName": "DT Capital",
+    "settingDesc": "The busiest part of the Kingdom's capital city.",
+
+    "actionText": "You decided to take some time to explore the beautiful town in the capital.",
+    "effectText": "You stumbled upon a magic shop, taking interest in magic, you walked in.",
+    "optionalText": "After a look around, you found some magic artifacts on the shelves, and they seem to be for sale.",
+
+    "questionText": "Which artifact will you purchase?",
+
+    "button1": {
+      "text": "Air Jump XVI",
+      "path": "startJourney",
+      "addItem": {
+        "name": "airJump",
+        "itemSrc": "https://cdn3.iconfinder.com/data/icons/basketball-icons/484/Winged_Shoe-512.png"
+      },
+      "action": "Thinking that speed will go a long way, you purchased the winged boots."
+    },
+
+    "button2": {
+      "text": "Invisibility Cloak",
+      "path": "startJourney",
+      "addItem": {
+        "name": "invisCloak",
+        "itemSrc": "https://cdn4.iconfinder.com/data/icons/video-game-items-concepts/128/armor-cloak-512.png"
+      },
+      "action": "Deciding that stealth is the way to go, you purchased the invisbility cloak."
+    },
+
+    "button3": {
+      "text": "Unidentified Gem",
+      "path": "startJourney",
+      "addItem": {
+        "name": "gemArtifact",
+        "itemSrc": "https://static.thenounproject.com/png/206646-200.png"
+      },
+      "action": "Interested in identifying the gem, you purchased an unidentified gem."
+    }
+  },
+
+  "#": "Journey",
+
+  "startJourney": {
+    "type": "scenario",
+
+    "imgSrc": "https://mocah.org/uploads/posts/4548421-fantasy-art-plains.jpg",
+    "settingName": "Plains",
+    "settingDesc": "An open field of grass, nature's battlefield.",
+
+    "actionText": "There should be nothing left to do in the city, it's best to start as soon as possible.",
+    "effectText": "...<br>You left the city and traveled north, to the Dark Lord's castle.",
+    "optionalText": "But after a couple of hours, you encountered a monster attack.",
+
+    "questionText": "What do you do?",
+
+    "button1": {
+      "text": "Attack",
+      "path": "attackMonster"
+    },
+
+    "button2": {
+      "text": "Use ultimate skill",
+      "path": "ultimateMonster"
+    }
+  },
+
+  "attackMonster": {
+    "type": "scenario",
+
+    "imgSrc": "https://mocah.org/uploads/posts/4548421-fantasy-art-plains.jpg",
+    "settingName": "Plains",
+    "settingDesc": "An open field of grass, nature's battlefield.",
+
+    "actionText": "You attacked the monster and successfully defeated it.",
+    "effectText": "The monster began begging for mercy.",
+
+    "questionText": "Spare the monster?",
+
+    "button1": {
+      "text": "No",
+      "path": "noMercy"
+    },
+
+    "button2": {
+      "text": "Yes",
+      "path": "haveMercy"
+    }
+  },
+  "ultimateMonster": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/1b/7c/25/1b7c253a8a57739ce16696e453db43ac.jpg",
+    "settingName": "Plains",
+    "settingDesc": "An open field of grass, nature's battlefield.",
+
+    "actionText": "You casted your ultimate ability, summoning a giant beam of light from the sky.",
+    "effectText": "The beam lasted for 10 seconds. After it dissipated, all that was left is the burn mark of grass.",
+    "optionalText": "You took one second of silence to honor its death.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Rest",
+      "path": "deadRest"
+    },
+
+    "button2": {
+      "text": "Continue journey",
+      "path": "deadContinue"
+    }
+  },
+  "noMercy": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/1b/7c/25/1b7c253a8a57739ce16696e453db43ac.jpg",
+    "settingName": "Plains",
+    "settingDesc": "An open field of grass, nature's battlefield.",
+
+    "actionText": "You refused to give the monster mercy, and sliced its throat.",
+    "effectText": "The monster fell onto the grass field.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Rest",
+      "path": "deadRest"
+    },
+
+    "button2": {
+      "text": "Continue",
+      "path": "deadContinue"
+    }
+  },
+  "haveMercy": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/c6/36/15/c63615d0623ee72fd86d963d370ee2b5.jpg",
+    "settingName": "Plains",
+    "settingDesc": "An open field of grass, nature's battlefield.",
+
+    "actionText": "You gave the monster mercy. Not all monsters threaten to destroy the world.",
+    "effectText": "The monster thanked you and fled for its life.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Rest",
+      "random": [
+        {
+          "chance": 1,
+          "path": "mercyRest"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "necklace",
+        "path": "deadRest",
+        "effect": "You were slain in your rest as the monsters greeded for the possession of the diamond necklace."
+      }
+    },
+
+    "button2": {
+      "text": "Continue",
+      "path": "mercyContinue"
+    }
+  },
+  "deadRest": {
+    "type": "ending",
+
+    "imgSrc": "https://www.otherworldlyincantations.com/wp-content/uploads/Otherworldly-Incantations-Plains-Worldbuilding-Temperate-Grasslands.jpg",
+
+    "endTitle": "Assassinated",
+    "effectText": "The family of the monster avenged for its death."
+  },
+  "deadContinue": {
+    "type": "scenario",
+
+    "imgSrc": "https://cdnb.artstation.com/p/assets/images/images/000/200/097/large/katy-grierson-mec26-7739-plainsofenedwaith-katygrierson.jpg?1410336880",
+    "settingName": "Plains",
+    "settingDesc": "An open field of grass, nature's battlefield.",
+
+    "actionText": "You decided to continue while it's still day.",
+    "effectText": "After a while, you noticed you have been surrounded by nearly a hundred monsters.",
+    "optionalText": "They don't seem to be here for money, they're here to kill... or take revenge.",
+
+    "questionText": "What do you do?",
+
+    "button1": {
+      "text": "Kill all monsters",
+      "random": [
+        {
+          "chance": 0.6,
+          "path": "fightWin"
+        },
+        {
+          "chance": 0.4,
+          "path": "fightLose"
+        }
+      ],
+      "alternative": {
+        "item": "excalibur",
+        "path": "fightWin"
+      }
+    },
+
+    "button2": {
+      "text": "Fight a way out",
+      "random": [
+        {
+          "chance": 0.3,
+          "path": "fleeFail"
+        },
+        {
+          "chance": 0.7,
+          "path": "fleeSuccess"
+        }
+      ],
+      "alternative": {
+        "item": "airJump",
+        "path": "fleeSuccess"
+      }
+    }
+  },
+  "fightLose": {
+    "type": "ending",
+
+    "imgSrc": "https://www.otherworldlyincantations.com/wp-content/uploads/Otherworldly-Incantations-Plains-Worldbuilding-Temperate-Grasslands.jpg",
+
+    "endTitle": "Death by a thousand cuts",
+    "effectText": "Overwhelmed by numbers, you were stabbed a thousand times for the death of a certain monster."
+  },
+  "fleeFail": {
+    "type": "ending",
+
+    "imgSrc": "https://www.otherworldlyincantations.com/wp-content/uploads/Otherworldly-Incantations-Plains-Worldbuilding-Temperate-Grasslands.jpg",
+
+    "endTitle": "Death by a thousand cuts",
+    "effectText": "Failing to escape, you were stabbed a thousand times for the death of a certain monster."
+  },
+  "mercyRest": {
+    "type": "scenario",
+
+    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9d79f414-d0b7-4696-83c5-6d0ca597f09e/d84thyz-e32b2d39-815f-413b-95e6-d4f70fb61cde.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOWQ3OWY0MTQtZDBiNy00Njk2LTgzYzUtNmQwY2E1OTdmMDllXC9kODR0aHl6LWUzMmIyZDM5LTgxNWYtNDEzYi05NWU2LWQ0ZjcwZmI2MWNkZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vi7_crpkzf6chzbeI3ZgnfioyIJ1BZIfVUd22_QtleU",
+    "settingName": "Dark Lord's Castle",
+    "settingDesc": "The base of the Dark Lord and his minions, a place feared by many.",
+
+    "actionText": "You decided to take a sweet nap on the plains, being confident in your abilities.",
+    "effectText": "...<br>After a short nap, you wake up, and find a map of the Dark Lord's castle by your side.",
+    "optionalText": "...<br>Continuing your journey, you reached the castle in a month, encountering no more monsters.",
+
+    "questionText": "How will you approach the Dark Lord's castle?",
+
+    "button1": {
+      "text": "Wait for backup",
+      "path": "castleWait",
+      "addItem": {
+        "name": "comDevice",
+        "itemSrc": "https://cdn0.iconfinder.com/data/icons/army-military/128/9-512.png"
+      }
+    },
+
+    "button2": {
+      "text": "Sneak in",
+      "random": [
+        {
+          "chance": 0.8,
+          "path": "invadeSuccess"
+        },
+        {
+          "chance": 0.2,
+          "path": "stealthFail"
+        }
+      ],
+      "alternative": {
+        "item": "invisCloak",
+        "path": "invadeSuccess"
+      }
+    },
+
+    "button3": {
+      "text": "Rush in",
+      "random": [
+        {
+          "chance": 1,
+          "path": "castleRush"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "airJump",
+        "path": "invadeSuccess",
+        "action": "With the help of the Air Jump XVI, you successfully outran the guards and made your way into the castle."
+      }
+    }
+  },
+  "mercyContinue": {
+    "type": "scenario",
+
+    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9d79f414-d0b7-4696-83c5-6d0ca597f09e/d84thyz-e32b2d39-815f-413b-95e6-d4f70fb61cde.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOWQ3OWY0MTQtZDBiNy00Njk2LTgzYzUtNmQwY2E1OTdmMDllXC9kODR0aHl6LWUzMmIyZDM5LTgxNWYtNDEzYi05NWU2LWQ0ZjcwZmI2MWNkZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vi7_crpkzf6chzbeI3ZgnfioyIJ1BZIfVUd22_QtleU",
+    "settingName": "Dark Lord's Castle",
+    "settingDesc": "The base of the Dark Lord and his minions, a place feared by many.",
+
+    "actionText": "You decided to continue your journey.",
+    "effectText": "Along the way, you met the monster you spared. It gave you a map of the Dark Lord's castle as thanks to sparing it.",
+    "optionalText": "...<br>After a month of travelling, you reached the Dark Lord's castle. Surprisingly, you encountered no more monsters along the way.",
+
+    "questionText": "How do you approach it?",
+
+    "button1": {
+      "text": "Wait for backup",
+      "path": "castleWait",
+      "addItem": {
+        "name": "comDevice",
+        "itemSrc": "https://cdn0.iconfinder.com/data/icons/army-military/128/9-512.png"
+      }
+    },
+
+    "button2": {
+      "text": "Sneak in",
+      "random": [
+        {
+          "chance": 0.8,
+          "path": "invadeSuccess"
+        },
+        {
+          "chance": 0.2,
+          "path": "stealthFail"
+        }
+      ],
+      "alternative": {
+        "item": "invisCloak",
+        "path": "invadeSuccess"
+      }
+    },
+
+    "button3": {
+      "text": "Rush in",
+      "random": [
+        {
+          "chance": 1,
+          "path": "castleRush"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "airJump",
+        "path": "invadeSuccess",
+        "action": "With the help of the Air Jump XVI, you dashed and climbed over the wall of the castle with incredible speed."
+      }
+    }
+  },
+  "fightWin": {
+    "type": "scenario",
+
+    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9d79f414-d0b7-4696-83c5-6d0ca597f09e/d84thyz-e32b2d39-815f-413b-95e6-d4f70fb61cde.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOWQ3OWY0MTQtZDBiNy00Njk2LTgzYzUtNmQwY2E1OTdmMDllXC9kODR0aHl6LWUzMmIyZDM5LTgxNWYtNDEzYi05NWU2LWQ0ZjcwZmI2MWNkZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vi7_crpkzf6chzbeI3ZgnfioyIJ1BZIfVUd22_QtleU",
+    "settingName": "Dark Lord's Castle",
+    "settingDesc": "The base of the Dark Lord and his minions, a place feared by many.",
+
+    "actionText": "With fast reflexes and amazing sword skills, you singlehanded defeated an army of monsters going after your life.",
+    "effectText": "After resting for a short while, you continued your journey.",
+    "optionalText": "In one month's time, you reached the Dark Lord's castle. Monsters along the journey feared and avoided you.",
+
+    "questionText": "How do you approach the castle?",
+
+    "button1": {
+      "text": "Wait for backup",
+      "path": "castleWait",
+      "addItem": {
+        "name": "comDevice",
+        "itemSrc": "https://cdn0.iconfinder.com/data/icons/army-military/128/9-512.png"
+      }
+    },
+
+    "button2": {
+      "text": "Sneak in",
+      "random": [
+        {
+          "chance": 0.8,
+          "path": "invadeSuccess"
+        },
+        {
+          "chance": 0.2,
+          "path": "stealthFail"
+        }
+      ],
+      "alternative": {
+        "item": "invisCloak",
+        "path": "invadeSuccess"
+      }
+    },
+
+    "button3": {
+      "text": "Rush in",
+      "random": [
+        {
+          "chance": 1,
+          "path": "castleRush"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "airJump",
+        "path": "invadeSuccess",
+        "action": "With the help of the Air Jump XVI, you dashed and climbed over the wall of the castle with incredible speed."
+      }
+    }
+  },
+  "fleeSuccess": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/ed/77/ba/ed77ba084520faa48cde9c102898d601.jpg",
+    "settingName": "Dark Lord's Castle",
+    "settingDesc": "The base of the Dark Lord and his minions, a place feared by many.",
+
+    "actionText": "You successfully fought your way out of the circle of monsters.",
+    "effectText": "You continued your journey after making sure you lost them.",
+    "optionalText": "...<br>You finally made it to the Dark Lord's castle after a month of avoiding monsters.",
+
+    "questionText": "How will you approach the castle?",
+
+    "button1": {
+      "text": "Wait for backup",
+      "path": "castleWait",
+      "addItem": {
+        "name": "comDevice",
+        "itemSrc": "https://cdn0.iconfinder.com/data/icons/army-military/128/9-512.png"
+      }
+    },
+
+    "button2": {
+      "text": "Sneak in",
+      "random": [
+        {
+          "chance": 0.8,
+          "path": "invadeSuccess"
+        },
+        {
+          "chance": 0.2,
+          "path": "stealthFail"
+        }
+      ],
+      "alternative": {
+        "item": "invisCloak",
+        "path": "invadeSuccess"
+      }
+    },
+
+    "button3": {
+      "text": "Rush in",
+      "random": [
+        {
+          "chance": 1,
+          "path": "castleRush"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "airJump",
+        "path": "invadeSuccess",
+        "action": "With the help of the Air Jump XVI, you dashed and climbed over the wall of the castle with incredible speed."
+      }
+    }
+  },
+
+  "##": "Castle",
+
+  "castleWait": {
+    "type": "scenario",
+
+    "imgSrc": "https://pbs.twimg.com/media/DZJDJnGUMAAzgvl.jpg",
+    "settingName": "Dark Lord's Castle",
+    "settingDesc": "The base of the Dark Lord and his minions, a place feared by many.",
+
+    "actionText": "You notified the Kingdom that you're ready with your (magic) communication device, and awaited for backup.",
+    "effectText": "...After a week, you were notified that the army will be there soon, you were suggested to take action now.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Sneak in",
+      "random": [
+        {
+          "chance": 0.8,
+          "path": "invadeSuccess"
+        },
+        {
+          "chance": 0.2,
+          "path": "stealthFail"
+        }
+      ],
+      "alternative": {
+        "item": "invisCloak",
+        "path": "invadeSuccess"
+      }
+    },
+
+    "button2": {
+      "text": "Rush in",
+      "random": [
+        {
+          "chance": 1,
+          "path": "castleRush"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "airJump",
+        "path": "invadeSuccess",
+        "action": "With the help of the Air Jump XVI, you dashed and climbed over the wall of the castle with incredible speed."
+      }
+    }
+  },
+  "stealthFail": {
+    "type": "ending",
+
+    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9d79f414-d0b7-4696-83c5-6d0ca597f09e/d84t11d-282706c9-77f6-4d56-add7-f0f4a490479c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvOWQ3OWY0MTQtZDBiNy00Njk2LTgzYzUtNmQwY2E1OTdmMDllXC9kODR0MTFkLTI4MjcwNmM5LTc3ZjYtNGQ1Ni1hZGQ3LWYwZjRhNDkwNDc5Yy5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.XCxlkAqYZPYC9MsMZc-pbb_xAuX7fTph4L0A8f37K7Y",
+
+    "endTitle": "Arrow to the knee",
+    "effectText": "You were spotted by a guard, and was shot in the knee, your movement was disabled and you were caught."
+  },
+  "invadeSuccess": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/52/1b/1c/521b1cab30c7de169e465d9f02b6966d.jpg",
+    "settingName": "Dark Lord's Castle",
+    "settingDesc": "The base of the Dark Lord and his minions, feared by many.",
+
+    "actionText": "By staying close to shadow and walls, you successfully snuck into the castle.",
+    "effectText": "After finding a safe spot to stay, you conveniently noticed a map on the wall, it even has an emergency exit marked.",
+
+    "questionText": "Where do you go first?",
+
+    "button1": {
+      "text": "Kitchen",
+      "path": "castleKitchen"
+    },
+
+    "button2": {
+      "text": "Master Bedroom",
+      "path": "castleBedroom"
+    },
+
+    "button3": {
+      "text": "Prison",
+      "path": "castlePrison"
+    }
+  },
+  "castleRush": {
+    "type": "ending",
+
+    "imgSrc": "https://www.itl.cat/pngfile/big/204-2049685_alone-in-the-dark-wallpapers-hd-dark-fantasy.jpg",
+
+    "endTitle": "Arrow to the knee",
+    "effectText": "You tried to dash through the entrance. However, your life ended quickly as you could not outrun the hundreds of arrows fired from the castle wall."
+  },
+
+  "###": "Kitchen",
+
+  "castleKitchen": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/c5/ac/50/c5ac50c473f2483e54da96212d805f7b.jpg",
+    "settingName": "Castle Kitchen",
+    "settingDesc": "The place where reknowned monster chefs gather to create meals for the Dark Lord and his minions.",
+
+    "actionText": "Following the map, you made your way to the castle's kitchen. Perhaps you could find something delicious in there?",
+    "effectText": "You cautiously opened the kitchen. Luckily, it's past supper time and the chefs have gone to sleep, leaving the kitchen empty.",
+    "optionalText": "The smell here is surprisingly good for a monster's kitchen, maybe they aren't so bad at cooking. Though you shuddered at the thought of the ingredients.",
+
+    "questionText": "What do you do here?",
+
+    "button1": {
+      "text": "Make something for yourself",
+      "path": "makeFood"
+    },
+
+    "button2": {
+      "text": "Try their cooking",
+      "path": "takeFood"
+    }
+  },
+  "makeFood": {
+    "type": "ending",
+
+    "imgSrc": "https://i.pinimg.com/originals/c5/ac/50/c5ac50c473f2483e54da96212d805f7b.jpg",
+
+    "endTitle": "Kidnapped chef",
+    "effectText": "Though hungry, you decided to not test your luck on the monster's cooking, and tried to make something to eat.<br><br>Though a hero, you take pride in your cooking skills refined over countless quests and nights spent camping.<br><br>However, you miscalculated one thing: the scent. You were quickly noticed, and not long after, you were kidnapped to serve as a chef for the Dark Lord."
+  },
+  "takeFood": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/c5/ac/50/c5ac50c473f2483e54da96212d805f7b.jpg",
+    "settingName": "Castle Kitchen",
+    "settingDesc": "The place where reknowned monster chefs gather to create meals for the Dark Lord and his minions.",
+
+    "actionText": "You decided to try some of the monsters' cooking, it can't be that bad.",
+    "effectText": "As you reached to grab a cookie, you hear munching noises from the other room. You took a quick peak around the corner and noticed the Dark Lord eating his supper.",
+    "optionalText": "Luckily, he hasn't noticed you.",
+
+    "questionText": "What do you do?",
+
+    "button1": {
+      "text": "Back out for now",
+      "path": "bossRetreat"
+    },
+
+    "button2": {
+      "text": "Think of a way to fight him",
+      "path": "fightBoss"
+    }
+  },
+
+  "#####": "Prison",
+
+  "castlePrison": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/58/86/96/588696aa555c578e99d44a75d0bf4172.jpg",
+    "settingName": "Castle Prison",
+    "settingDesc": "A prison used by the Dark Lord and his minions to trap those they've captured. Though it is unknown what evil deeds they wish to do to them.",
+
+    "actionText": "You followed the map to the castle's prison, treading cautiously to avoid any potential guards on patrol.",
+    "effectText": "When you made it to the prison, you were taken back by the smell. They must have not had a shower in years.",
+    "optionalText": "The prisoners all looked at you when you entered, surprised to find no one behind you.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Rescue the prisoners",
+      "path": "rescuePrisoners",
+      "addItem": {
+        "name": "comDevice",
+        "itemSrc": "https://cdn0.iconfinder.com/data/icons/army-military/128/9-512.png"
+      }
+    },
+
+    "button2": {
+      "text": "Have a look around",
+      "path": "explorePrison"
+    }
+  },
+  "rescuePrisoners": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/94/72/39/947239b51bb11bd3802cd2ab29414633.jpg",
+    "settingName": "Castle Prison",
+    "settingDesc": "A prison used by the Dark Lord and his minions to trap those they've captured. Though it is unknown what evil deeds they wish to do to them.",
+
+    "actionText": "You decided to rescue the prisoners, they'll be able to cause chaos in the castle when the time is right.",
+    "effectText": "With the last prisoner freed, you decided to ask them to aid you in your quest to defeat the Dark Lord. Seeing vengeance can be achieved, the prisoners agreed.",
+    "optionalText": "You gave the strongest man a communication device and told them to wait there and to act when you give your command.",
+
+    "questionText": "Where do you go now?",
+
+    "button1": {
+      "text": "Kitchen",
+      "path": "castleKitchen"
+    },
+
+    "button2": {
+      "text": "Bedroom",
+      "path": "castleBedroom"
+    }
+  },
+  "explorePrison": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/eb/1f/5a/eb1f5a0112860bc2241895ba73fe2edc.png",
+    "settingName": "Castle Prison",
+    "settingDesc": "A prison used by the Dark Lord and his minions to trap those they've captured. Though it is unknown what evil deeds they wish to do to them.",
+
+    "actionText": "Before you release the prisoners, you wanted to take a look around the prison.",
+    "effectText": "Bearing the smell, you found a secret entrance by knocking the walls of the prison. It seems to lead underground.",
+
+    "questionText": "Do you go in?",
+
+    "button1": {
+      "text": "Leave it",
+      "path": "leaveRoute"
+    },
+
+    "button2": {
+      "text": "Explore it",
+      "path": "exploreRoute"
+    }
+  },
+
+  "######": "Dragon",
+
+  "leaveRoute": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/58/86/96/588696aa555c578e99d44a75d0bf4172.jpg",
+    "settingName": "Castle Prison",
+    "settingDesc": "A prison used by the Dark Lord and his minions to trap those they've captured. Though it is unknown what evil deeds they wish to do to them.",
+
+    "actionText": "You decided it's probably best to not venture into an unknown path. You left the route for now.",
+    "effectText": "You returned back to the castle prison.",
+
+    "questionText": "Where do you go now?",
+
+    "button1": {
+      "text": "Bedroom",
+      "path": "castleBedroom"
+    },
+
+    "button2": {
+      "text": "Kitchen",
+      "path": "castleKitchen"
+    },
+
+    "button3": {
+      "text": "Rescue the prisoners",
+      "path": "rescuePrisoners"
+    }
+  },
+  "exploreRoute": {
+    "type": "scenario",
+
+    "imgSrc": "https://4.bp.blogspot.com/-p00OpS5jhIA/WkC7YpHmmcI/AAAAAAAACsg/LVHhkXTY-r8rsLw2psx_fUw8B-ogB5_ggCLcBGAs/w1200-h630-p-k-no-nu/dartgarry_black_dragon_coin_2_by_dartgarry-d7j3dr2.jpg",
+
+    "actionText": "You decided to explore the mysterious route leading underground.",
+    "effectText": "As you get deeper in this route, the temperature gets higher. At the end of the route, you find a cave... with a sleeping dragon.",
+    "optionalText": "However, it seems the dragon was awoken by your footsteps, its cold eyes now stare at you with intimidation.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Attempt to tame it",
+      "random": [
+        {
+          "chance": 0.9,
+          "path": "cookedHuman"
+        },
+        {
+          "chance": 0.1,
+          "path": "tamedDragon"
+        }
+      ],
+      "alternative": {
+        "item": "gemArtifact",
+        "path": "tamedDragon"
+      }
+    },
+
+    "button2": {
+      "text": "Attempt to communicate",
+      "random": [
+        {
+          "chance": 0.7,
+          "path": "slicedHuman"
+        },
+        {
+          "chance": 0.3,
+          "path": "dragonReward",
+          "addItem": {
+            "name": "mirror",
+            "itemSrc": "https://static.thenounproject.com/png/332402-200.png"
+          }
+        }
+      ],
+      "alternative": {
+        "item": "dragonEgg",
+        "path": "dragonReward",
+        "addItem": {
+          "name": "mirror",
+          "itemSrc": "https://static.thenounproject.com/png/332402-200.png"
+        }
+      }
+    },
+
+    "button3": {
+      "text": "Attempt to escape",
+      "random": [
+        {
+          "chance": 0.5,
+          "path": "escapeDragon"
+        },
+        {
+          "chance": 0.5,
+          "path": "slicedHuman"
+        }
+      ],
+      "alternative": {
+        "item": "airJump",
+        "path": "escapeDragon"
+      }
+    }
+  },
+  "tamedDragon": {
+    "type": "ending",
+
+    "imgSrc": "https://i.pinimg.com/originals/aa/5f/fd/aa5ffda4e96eb9e25a0ffee37f2d81cc.jpg",
+
+    "endTitle": "Dragon tamer",
+    "effectText": "Either with extreme luck or sheer skill, you managed to tame a dragon and defeat the Dark Lord with its help."
+  },
+  "cookedHuman": {
+    "type": "ending",
+
+    "imgSrc": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f5aed93-6289-49ba-8ce0-7d11dbd70c50/d67sua8-87f98953-cef1-437a-9e1d-aff5d2f42779.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMGY1YWVkOTMtNjI4OS00OWJhLThjZTAtN2QxMWRiZDcwYzUwXC9kNjdzdWE4LTg3Zjk4OTUzLWNlZjEtNDM3YS05ZTFkLWFmZjVkMmY0Mjc3OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.N-N_v9D5Nm_FYogKfya1PHTut0KLA5RsqmS_G4dZM6c",
+
+    "endTitle": "Cooked meal",
+    "effectText": "Daring to tame a dragon, you were cooked alive by the dragon's breath."
+  },
+  "slicedHuman": {
+    "type": "ending",
+
+    "imgSrc": "https://i.ytimg.com/vi/3Imc8tnQNpE/maxresdefault.jpg",
+
+    "endTitle": "Dragon's dinner",
+    "effectText": "Though you put up a good fight, you were no match for the giant dragon that held supernatural powers."
+  },
+  "dragonReward": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/3f/b2/39/3fb239d9c9449f1738107012aca22e98.jpg",
+    "settingName": "Dragon's Nest",
+    "settingDesc": "The underground home of the fire dragon, the prison seems to be built on top of this place.",
+
+    "actionText": "With some persuasive skills, you convinced the dragon to help you to defeat the Dark Lord.",
+    "effectText": "The dragon gave you a reflective mirror, though you have no idea how this can help you, you're glad that you can leave alive.",
+
+    "questionText": "Where to now?",
+
+    "button1": {
+      "text": "Bedroom",
+      "path": "castleBedroom"
+    },
+
+    "button2": {
+      "text": "Kitchen",
+      "path": "castleKitchen"
+    },
+
+    "button3": {
+      "text": "Rescue the prisoners",
+      "path": "rescuePrisoners"
+    }
+  },
+  "escapeDragon": {
+    "type": "scenario",
+
+    "imgSrc": "https://pm1.narvii.com/6697/832bd408253357f37d5883630db9582930657cba_hq.jpg",
+    "settingName": "Castle Prison",
+    "settingDesc": "A prison used by the Dark Lord and his minions to trap those they've captured. Though it is unknown what evil deeds they wish to do to them.",
+
+    "actionText": "You made a run for it to escape the potential wrath of the dragon.",
+    "effectText": "By doding and changing directions as you run, you managed to dodge the dragon's attacks and made it back to the castle prison.",
+    "optionalText": "The dragon did not attack you further, perhaps it's trapped down there.",
+
+    "questionText": "Where do you go now?",
+
+    "button1": {
+      "text": "Bedroom",
+      "path": "castleBedroom"
+    },
+
+    "button2": {
+      "text": "Kitchen",
+      "path": "castleKitchen"
+    },
+
+    "button3": {
+      "text": "Rescue the prisoners",
+      "path": "rescuePrisoners"
+    }
+  },
+
+  "####": "Boss",
+
+  "castleBedroom": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/66/82/fe/6682fe6510ff21c2fdedc467a3a40ef9.png",
+    "settingName": "Master Bedroom",
+    "settingDesc": "This used to be the master bedroom of a corrupted King, now it is the resting place of the Dark Lord.",
+
+    "actionText": "You followed to map to find the master bedroom, but you did not find the Dark Lord inside.",
+    "effectText": "You decided to wait in the closet.<br><br>Moments later, the Dark Lord returned, however, he started to meditate instead of resting.",
+    "optionalText": "Leaving now would be too risky, the Dark Lord is too cautious.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Wait for a time to strike",
+      "random": [
+        {
+          "chance": 1,
+          "path": "bossWait"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "comDevice",
+        "path": "bossSlain",
+        "effect": "You ordered the troops to move. With them in the castle causing chaos, you found a good opportunity to take down the Dark Lord for good."
+      }
+    },
+
+    "button2": {
+      "text": "Charge in, he who strikes first wins",
+      "random": [
+        {
+          "chance": 0.5,
+          "path": "bossSlain"
+        },
+        {
+          "chance": 0.5,
+          "path": "bossCounter"
+        }
+      ],
+      "alternative": {
+        "item": "mirror",
+        "path": "bossSlain",
+        "effect": "You reflected the Dark Lord's attacks with the mirror, and successfully took down the Dark Lord."
+      }
+    },
+
+    "button3": {
+      "text": "Use Final Smash",
+      "random": [
+        {
+          "chance": 0.3,
+          "path": "bossFinal"
+        },
+        {
+          "chance": 0.7,
+          "path": "finalFail"
+        }
+      ]
+    }
+  },
+  "fightBoss": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/c5/ac/50/c5ac50c473f2483e54da96212d805f7b.jpg",
+    "settingName": "Castle Kitchen",
+    "settingDesc": "The place where reknowned monster chefs gather to create meals for the Dark Lord and his minions.",
+
+    "actionText": "You decided to fight the Dark Lord here, while he's paying attention on food.",
+    "effectText": "However, he's facing your direction. You could only observe him through a peekhole. It would be unwise to approach slowly.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Wait for a time to strike",
+      "random": [
+        {
+          "chance": 1,
+          "path": "bossWait"
+        },
+        {
+          "chance": 0,
+          "path": ""
+        }
+      ],
+      "alternative": {
+        "item": "comDevice",
+        "path": "bossSlain",
+        "effect": "You ordered the troops to move. With them in the castle causing chaos, you found a good opportunity to take down the Dark Lord for good."
+      }
+    },
+
+    "button2": {
+      "text": "Charge in, he who strikes first wins",
+      "random": [
+        {
+          "chance": 0.5,
+          "path": "bossSlain"
+        },
+        {
+          "chance": 0.5,
+          "path": "bossCounter"
+        }
+      ],
+      "alternative": {
+        "item": "mirror",
+        "path": "bossSlain",
+        "effect": "You reflected the Dark Lord's attacks with the mirror, and successfully took down the Dark Lord."
+      }
+    },
+
+    "button3": {
+      "text": "Use Final Smash",
+      "random": [
+        {
+          "chance": 0.3,
+          "path": "bossFinal"
+        },
+        {
+          "chance": 0.7,
+          "path": "finalFail"
+        }
+      ]
+    }
+  },
+  "bossRetreat": {
+    "type": "scenario",
+
+    "imgSrc": "https://i.pinimg.com/originals/52/1b/1c/521b1cab30c7de169e465d9f02b6966d.jpg",
+    "settingName": "Dark Lord's Castle",
+    "settingDesc": "The base of the Dark Lord and his minions, feared by many.",
+
+    "actionText": "You decided to retreat for now, and fight for another time.",
+    "effectText": "You find yourself back at the safe spot with the map, you decided to rest for a bit here.",
+    "optionalText": "Perhaps you could call for the army's backup, though it'll take a while for them to get here.",
+
+    "questionText": "What do you do now?",
+
+    "button1": {
+      "text": "Go to the Castle's Prison",
+      "path": "castlePrison"
+    },
+
+    "button2": {
+      "text": "Go to the Master Bedroom",
+      "path": "castleBedroom"
+    },
+
+    "button3": {
+      "text": "Call backup",
+      "path": "castleWait",
+      "addItem": {
+        "name": "comDevice",
+        "itemSrc": "https://cdn0.iconfinder.com/data/icons/army-military/128/9-512.png"
+      }
+    }
+  },
+  "bossWait": {
+    "type": "ending",
+
+    "imgSrc": "https://i.pinimg.com/originals/1c/85/4c/1c854cb7b2e4f92a89045ea1e6b99d13.jpg",
+
+    "endTitle": "You've activated my trap (card)",
+    "effectText": "Whilst waiting for the Dark Lord to show an opportunity, you fell asleep and activated a trap, falling within."
+  },
+  "bossSlain": {
+    "type": "ending",
+
+    "imgSrc": "https://i.pinimg.com/originals/49/0f/f3/490ff353d33f428811c53b304ecdc691.jpg",
+
+    "endTitle": "The Dark Lord is no more",
+    "effectText": "You defeated the Dark Lord, returning peace to the world."
+  },
+  "bossCounter": {
+    "type": "ending",
+
+    "imgSrc": "https://i.pinimg.com/originals/b5/cc/c9/b5ccc9657950691081d977b6c0725c42.jpg",
+
+    "endTitle": "Counter attacked",
+    "effectText": "The Dark Lord noticed you before your attack got to him. Before you know it, you were countered and incinerated by the Dark Lord's magic."
+  },
+  "bossFinal": {
+    "type": "ending",
+
+    "imgSrc": "https://i.pinimg.com/originals/ca/29/ff/ca29ff42d07937794cb376ef9e2047b4.jpg",
+
+    "endTitle": "Last man standing",
+    "effectText": "The Dark Lord was blown away by the magical power of your final smash, and was never seen again."
+  },
+  "finalFail": {
+    "type": "ending",
+
+    "imgSrc": "https://cdn.wallpapersafari.com/94/4/Gn4ubN.jpg",
+
+    "endTitle": "Wait, who farted?",
+    "effectText": "You charged up your final smash. But you failed to hold in the power before its release, the Dark Lord noticed you and turned you into ashes."
   }
 }
