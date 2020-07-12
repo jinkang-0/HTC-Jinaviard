@@ -61,6 +61,10 @@ body {
   text-align: center;
 }
 
+.align {
+  text-align: center;
+}
+
 .text {
   color: #CCC9DC;
   text-align: justify;
@@ -126,7 +130,10 @@ body {
   
   #pic {
     width: 200%;
-    margin-left: -50%;
+    height: 70vh;
+    object-fit: cover;
+    margin-left: 80%;
+    margin-bottom: 40px;
   }
 }
 
